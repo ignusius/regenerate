@@ -1,0 +1,8 @@
+Package: regenerate
+Version: 0.1
+Architecture: all
+Maintainer: Developers <ignusius@gmail.com>
+Original-Maintainer: Komarov Alexander
+Depends: python
+Description: Password regenerator
+Installed-Size: 1500

@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+#-*-coding:utf-8-*-
+'''
+Password regenerator
+Author:Komarov Alexander
+License: GNU GPL v.3
+'''
+import ConfigParser
+import re
+import sys
+
+class Regenerator:
+    
+    config = ConfigParser.ConfigParser()
+    mypass=''
+
+    def __init__(self):
+        self.config.optionxform = str
+        self.config.read('/usr/etc/regenerate_chars.db')
+        try:
+            self.mypass=sys.argv[1]
+        except:
+            print "Write password, please!"
+            sys.exit()
+
+    def decoding(self):
+        word=''
+        for char in self.mypass:
+            char=(self.config.get('chars',"'"+char+"'"))
+            chars=char.replace("'",'')
+            word=word+chars
+        print word
+
+decode=Regenerator()
+decode.decoding()
